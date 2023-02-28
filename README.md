@@ -23,7 +23,7 @@ Once the application window appears, you can start typing messages in the input 
 
 
 Credits
-This motion detector app was built by **PRAJOL SHRESTHA** as a personal project. 
+This CHATBOT app was built by **PRAJOL SHRESTHA** as a personal project. 
 If you have any feedback or suggestions, feel free to create a pull request or contact me via email.
 PyQt6: https://riverbankcomputing.com/software/pyqt/
 OpenAI API: https://beta.openai.com/docs/quickstart/
