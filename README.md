@@ -1,4 +1,4 @@
-# chatbot-w-chatgpt-
+# Chatbot-W-Chatgpt-
 
 Chatbot Application using OpenAI's GPT-3 API
 This code provides a simple GUI chatbot interface built with PyQt6 framework. It also utilizes OpenAI's GPT-3 API to generate responses to user inputs.
