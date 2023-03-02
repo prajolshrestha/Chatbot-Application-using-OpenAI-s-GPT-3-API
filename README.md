@@ -12,6 +12,7 @@ OpenAI API key
 Clone or download the repository.
 Install dependencies by running the command: pip install -r requirements.txt.
 Replace the OpenAI API key with your own in the Chatbot class.
+Kez can be found here: https://platform.openai.com/docs/api-reference?lang=python
 
 
 #Usage
