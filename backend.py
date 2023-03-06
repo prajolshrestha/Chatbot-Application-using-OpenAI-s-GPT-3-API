@@ -14,7 +14,3 @@ class Chatbot:
         ).choices[0].text
         return response
     
-if __name__ == "__main__":
-    chatbot = Chatbot()
-    response = chatbot.get_response("Write a joke about birds.")
-    print(response)
