@@ -55,4 +55,5 @@ class ChatbotWindow(QMainWindow):
 app = QApplication(sys.argv)
 main_window = ChatbotWindow()
 sys.exit(app.exec())    
+#end
 
