@@ -2,6 +2,8 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QTextEdit, QLineEdit, QPu
 import sys
 from backend import Chatbot
 import threading
+import speech_recognition as sr
+import time
 
 # FrontEnd
 class ChatbotWindow(QMainWindow):
@@ -21,8 +23,9 @@ class ChatbotWindow(QMainWindow):
         self.input_field.setGeometry(10,340,400,85)
         self.input_field.returnPressed.connect(self.send_message) #triggered by enter key
 
+
         # Add the button
-        self.button = QPushButton("Send", self)
+        self.button = QPushButton("START", self)
         self.button.setGeometry(420,340,70,85)
         self.button.clicked.connect(self.send_message)
         
@@ -30,18 +33,51 @@ class ChatbotWindow(QMainWindow):
         self.show()
 
 
-    # Main Processing Part
+
     def send_message(self):
-        # Helps to get user input using app
-        user_input = self.input_field.text().strip()
+        # version 1.0.0 ############################
+        # Helps to get user input using keyboard
+        #user_input = self.input_field.text().strip()
         #print(user_input)
-
+        
         # To show input in chat area
-        self.chat_area.append(f"<p style='color:#333333'>Me: {user_input}</p>")
-        self.input_field.clear()
+        # self.chat_area.append(f"<p style='color:#333333'>Me: {user_input}</p>")
+        # self.input_field.clear()
 
-        thread = threading.Thread(target=self.get_bot_response, args = (user_input, ))
-        thread.start()
+        # thread = threading.Thread(target=self.get_bot_response, args = (user_input, ))
+        # thread.start()
+
+        # version 2.0.0 ################################
+        recognizer = sr.Recognizer()
+        user_input = ''
+        
+
+        while user_input != 'stop':
+                print('How may I help you?')
+
+                # RECORD Audio 
+                with sr.Microphone() as source:
+                    audio = recognizer.record(source,duration=5)
+                    #time.sleep(5)
+
+                #Recognize the speech
+                user_input = recognizer.recognize_google(audio)
+                    
+                # print recognized text
+                print(user_input)
+
+                # To show input in chat area
+                self.chat_area.append(f"<p style='color:#333333'>Me: {user_input}</p>")
+                self.input_field.clear()
+
+                if user_input != 'stop':
+                    # get response using openai model
+                    thread = threading.Thread(target=self.get_bot_response, args = (user_input, ))
+                    thread.start()    # Main Processing Part
+
+
+            
+     
 
     def get_bot_response(self, user_input):
         #chatbot = Chatbot()
