@@ -27,7 +27,7 @@ Once the application window appears, you can start typing messages in the input 
 The speech recognition feature is coming soon!
 
 
-Credits
+## Credits
 This CHATBOT app was built by **PRAJOL SHRESTHA** as a personal project. 
 If you have any feedback or suggestions, feel free to create a pull request or contact me via email.
 PyQt6: https://riverbankcomputing.com/software/pyqt/
